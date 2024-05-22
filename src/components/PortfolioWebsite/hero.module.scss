@@ -1,0 +1,148 @@
+@use "../utils" as *;
+@use "../global" as *;
+
+.section2 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(3, 7, 18);
+}
+.flex_row {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0px 10px;
+  margin: 97px auto 101px;
+  width: 1215.921875px;
+  max-width: 85%;
+  @include md {
+    flex-direction: column;
+    gap: 30px 10px;
+  }
+  @include xs {
+    margin: 80px auto;
+  }
+  @include tn {
+    margin: 50px auto;
+  }
+}
+.flex_col {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 768px;
+  min-width: 0px;
+  @include md {
+    margin-top: unset;
+    margin-bottom: unset;
+    width: 100%;
+    min-width: unset;
+  }
+  @include tn {
+    flex: 0 1 auto;
+    order: 3;
+  }
+}
+.flex_col1 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px 0px;
+  width: 100%;
+}
+.hero_title {
+  position: relative;
+  display: flex;
+  font: 700 60px/1.2 "Inter", Helvetica, Arial, serif;
+  color: rgb(249, 250, 251);
+  letter-spacing: -1.2px;
+  @include md {
+    align-items: flex-start;
+    font-size: 52px;
+  }
+  @include xs {
+    justify-content: center;
+    text-align: center;
+  }
+  @include xxs {
+    font-size: 36px;
+  }
+}
+.highlight2 {
+  position: relative;
+  display: flex;
+  font: 400 16px/1.5 "Inter", Helvetica, Arial, serif;
+  color: rgb(209, 213, 219);
+  @include tn {
+    justify-content: center;
+    align-items: flex-start;
+    text-align: center;
+    font-size: 14px;
+  }
+}
+.flex_row1 {
+  position: relative;
+  display: flex;
+  gap: 0px 8px;
+  margin: 48px 0px 0px;
+  width: 100%;
+}
+.image {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  object-fit: cover;
+}
+.highlight21 {
+  position: relative;
+  font: 400 16px/1.5 "Inter", Helvetica, Arial, serif;
+  color: rgb(209, 213, 219);
+}
+.flex_row2 {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0px 16px;
+  margin: 8px 0px 0px;
+  width: 97.92%;
+  @include tn {
+    column-gap: 8px;
+  }
+}
+.image4 {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  border-radius: 4px 4px 4px 4px;
+  object-fit: cover;
+}
+.flex_row3 {
+  position: relative;
+  display: flex;
+  gap: 0px 16px;
+  margin: 54px 0px 0px;
+  width: 98.44%;
+  @include tn {
+    column-gap: 8px;
+    margin: 50px 0px 0px;
+  }
+}
+.image6 {
+  position: relative;
+  width: 280px;
+  min-width: 0px;
+  object-fit: cover;
+  @include md {
+    margin-top: unset;
+    margin-bottom: unset;
+    width: 100%;
+    min-width: unset;
+    max-width: 280px;
+  }
+  @include tn {
+    flex: 0 1 auto;
+    order: 1;
+  }
+}

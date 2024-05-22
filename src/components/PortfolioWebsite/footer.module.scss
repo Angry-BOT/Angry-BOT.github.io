@@ -1,0 +1,53 @@
+@use "../utils" as *;
+@use "../global" as *;
+
+.section7 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(17, 24, 39);
+}
+.flex_row {
+  position: relative;
+  display: flex;
+  gap: 0px 8px;
+  margin: 25px auto 24px;
+  width: 373px;
+  max-width: 85%;
+}
+.image33 {
+  position: relative;
+  margin: 2px 0px;
+  width: 16px;
+  height: 16px;
+  object-fit: cover;
+}
+.text1 {
+  font: 400 14px/1.42 "Inter", Helvetica, Arial, serif;
+  color: rgb(0, 0, 0);
+  @include tn {
+    text-align: center;
+    font-size: 14px;
+  }
+}
+.text1_box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  @include tn {
+    justify-content: center;
+    margin: auto;
+  }
+}
+.text1_span0 {
+  font: 1em/1.42 "Inter", Helvetica, Arial, serif;
+  color: rgb(209, 213, 219);
+}
+.text1_span1 {
+  font: 1em/1.42 "Inter", Helvetica, Arial, serif;
+  color: rgb(239, 68, 68);
+}
+.text1_span2 {
+  font: 1em/1.42 "Inter", Helvetica, Arial, serif;
+  color: rgb(209, 213, 219);
+}

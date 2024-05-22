@@ -1,0 +1,310 @@
+@use "../utils" as *;
+@use "../global" as *;
+
+.section5 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(17, 24, 39);
+}
+.flex_col {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 112px 0px;
+  margin: 97px auto 151px;
+  width: 828px;
+  max-width: 85%;
+  @include md {
+    margin: 97px auto 150px;
+  }
+  @include xs {
+    gap: 80px 0px;
+    margin: 80px auto;
+  }
+  @include tn {
+    gap: 50px 0px;
+    margin: 50px auto;
+  }
+}
+.flex_col1 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 80px 0px;
+  width: 98.43%;
+  @include tn {
+    gap: 50px 0px;
+  }
+}
+.flex_col2 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px 0px;
+  width: 536.015625px;
+  max-width: 85%;
+}
+.btn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin: 0px auto;
+  width: 115px;
+  max-width: 100%;
+  font: 500 14px/1.42 "Inter", Helvetica, Arial, serif;
+  color: rgb(209, 213, 219);
+  text-align: center;
+  background-color: rgb(55, 65, 81);
+  border-radius: 12px 12px 12px 12px;
+  padding: 4px 20px 4px 20px;
+}
+.subtitle {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  font: 400 20px/1.4 "Inter", Helvetica, Arial, serif;
+  color: rgb(209, 213, 219);
+  text-align: center;
+  @include md {
+    align-items: flex-start;
+    font-size: 18px;
+  }
+  @include xxs {
+    font-size: 16px;
+  }
+}
+.group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.content_box {
+  position: absolute;
+  top: 50%;
+  left: -32px;
+  display: flex;
+  flex-direction: column;
+  width: 896px;
+  height: 208px;
+  background: var(--src) center center / cover no-repeat;
+  background-color: rgb(31, 41, 55);
+  border-radius: 12px 12px 12px 12px;
+  padding: 0px 0px 0px 0px;
+  box-shadow: 0px 25px 25px 0px rgba(0, 0, 0, 0.149);
+  transform: translate(0, -50%);
+  @include tn {
+    display: none;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+}
+.flex_row {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  gap: 0px 10px;
+  @include sm {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px 10px;
+  }
+}
+.flex_col3 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 384px;
+  min-width: 0px;
+  @include sm {
+    margin-top: unset;
+    margin-bottom: unset;
+    width: 100%;
+    min-width: unset;
+  }
+}
+.subtitle1 {
+  position: relative;
+  font: 600 20px/1.4 "Inter", Helvetica, Arial, serif;
+  color: rgb(249, 250, 251);
+  @include md {
+    align-items: flex-start;
+    font-size: 18px;
+  }
+  @include xxs {
+    font-size: 16px;
+  }
+}
+.highlight2 {
+  position: relative;
+  margin: 16px 0px 0px;
+  font: 400 16px/1.5 "Inter", Helvetica, Arial, serif;
+  color: rgb(209, 213, 219);
+}
+.highlight21 {
+  position: relative;
+  margin: 4px 0px 0px;
+  font: 400 16px/1.5 "Inter", Helvetica, Arial, serif;
+  color: rgb(209, 213, 219);
+}
+.highlight4 {
+  position: relative;
+  margin: 0px 0px 120px;
+  font: 400 16px/1.5 "Inter", Helvetica, Arial, serif;
+  color: rgb(229, 231, 235);
+  letter-spacing: -0.1px;
+  @include sm {
+    margin-top: unset;
+    margin-bottom: unset;
+    width: 100%;
+  }
+}
+.flex_col4 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 112px 0px;
+  width: 100%;
+  @include xs {
+    gap: 80px 0px;
+  }
+  @include tn {
+    gap: 50px 0px;
+  }
+}
+.group1 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.content_box1 {
+  position: absolute;
+  top: 50%;
+  left: -32px;
+  display: flex;
+  flex-direction: column;
+  width: 896px;
+  height: 360px;
+  background: var(--src) center center / cover no-repeat;
+  background-color: rgb(31, 41, 55);
+  border-radius: 12px 12px 12px 12px;
+  padding: 0px 0px 0px 0px;
+  box-shadow: 0px 25px 25px 0px rgba(0, 0, 0, 0.149);
+  transform: translate(0, -50%);
+  @include tn {
+    display: none;
+  }
+}
+.flex_row1 {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  gap: 0px 10px;
+  @include md {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px 10px;
+  }
+}
+.flex_col5 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 522px;
+  min-width: 0px;
+  @include md {
+    margin-top: unset;
+    margin-bottom: unset;
+    width: 100%;
+    min-width: unset;
+  }
+}
+.highlight22 {
+  position: relative;
+  margin: 16px 0px 0px;
+  width: 384.96875px;
+  max-width: 85%;
+  font: 400 16px/1.5 "Inter", Helvetica, Arial, serif;
+  color: rgb(209, 213, 219);
+}
+.highlight23 {
+  position: relative;
+  margin: 4px 0px 0px;
+  width: 384.96875px;
+  max-width: 85%;
+  font: 400 16px/1.5 "Inter", Helvetica, Arial, serif;
+  color: rgb(209, 213, 219);
+}
+.highlight41 {
+  position: relative;
+  margin: 0px 0px 272px;
+  font: 400 16px/1.5 "Inter", Helvetica, Arial, serif;
+  color: rgb(229, 231, 235);
+  letter-spacing: -0.4px;
+  @include md {
+    margin-top: unset;
+    margin-bottom: unset;
+    width: 100%;
+  }
+}
+.group2 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 0px 2px 0px 0px;
+}
+.content_box2 {
+  position: absolute;
+  top: -32px;
+  left: -32px;
+  display: flex;
+  flex-direction: column;
+  width: 896px;
+  height: 396px;
+  background: var(--src) center center / cover no-repeat;
+  background-color: rgb(31, 41, 55);
+  border-radius: 12px 12px 12px 12px;
+  padding: 0px 0px 0px 0px;
+  box-shadow: 0px 25px 25px 0px rgba(0, 0, 0, 0.149);
+  @include tn {
+    display: none;
+  }
+}
+.flex_col6 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px 0px;
+  width: 450px;
+  min-width: 0px;
+  @include md {
+    margin-top: unset;
+    margin-bottom: unset;
+    width: 100%;
+    min-width: unset;
+  }
+}
+.highlight24 {
+  position: relative;
+  width: 85.56%;
+  font: 400 16px/1.5 "Inter", Helvetica, Arial, serif;
+  color: rgb(209, 213, 219);
+}
+.highlight42 {
+  position: relative;
+  margin: 0px 0px 284px;
+  font: 400 16px/1.5 "Inter", Helvetica, Arial, serif;
+  color: rgb(229, 231, 235);
+  letter-spacing: -0.4px;
+  @include md {
+    margin-top: unset;
+    margin-bottom: unset;
+    width: 100%;
+  }
+}

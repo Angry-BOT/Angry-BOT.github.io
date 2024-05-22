@@ -1,0 +1,110 @@
+@use "../utils" as *;
+@use "../global" as *;
+
+.aboutSection {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(3, 7, 18);
+}
+.flex_row {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  gap: 0px 8px;
+  margin: 16px auto 15px;
+  width: 1215.921875px;
+  max-width: 85%;
+  @include mq-between(xxl, xxxl) {
+    column-gap: 8px;
+  }
+  @include xs {
+    align-items: center;
+    align-content: center;
+    column-gap: 8px;
+    width: 85%;
+  }
+  @include xxs {
+    flex-direction: column;
+    gap: 30px 8px;
+  }
+}
+.title {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px auto auto 0px;
+  min-width: 98px;
+  font: 700 30px/1.2 "Inter", Helvetica, Arial, serif;
+  color: rgb(249, 250, 251);
+  text-align: center;
+  letter-spacing: -0.6px;
+  @include md {
+    font-size: 28px;
+  }
+  @include xxs {
+    margin: 0px auto 0px 0px;
+    width: 100%;
+    min-width: unset;
+    font-size: 24px;
+  }
+}
+.flex_row1 {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  gap: 0px 5px;
+  width: 369px;
+  min-width: 0px;
+  @include xs {
+    justify-content: flex-end;
+    column-gap: 16px;
+  }
+  @include xxs {
+    flex-direction: column;
+    gap: 8px 16px;
+    margin-top: unset;
+    margin-bottom: unset;
+    width: 100%;
+    min-width: unset;
+  }
+}
+.highlight {
+  position: relative;
+  display: flex;
+  font: 500 16px/1.5 "Inter", Helvetica, Arial, serif;
+  color: rgb(209, 213, 219);
+  @include xxs {
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: unset;
+    margin-bottom: unset;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+  }
+}
+.downloadButton {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  min-width: 136px;
+  font: 500 16px/1.5 "Inter", Helvetica, Arial, serif;
+  color: rgb(17, 24, 39);
+  text-align: center;
+  background-color: rgb(249, 250, 251);
+  border-radius: 12px 12px 12px 12px;
+  padding: 6px 16px 6px 16px;
+  @include xxs {
+    margin-top: unset;
+    margin-bottom: unset;
+    width: 100%;
+  }
+  @include tn {
+    align-items: flex-start;
+    font-size: 16px;
+  }
+}

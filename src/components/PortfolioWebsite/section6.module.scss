@@ -1,0 +1,221 @@
+@use "../utils" as *;
+@use "../global" as *;
+
+.image291 {
+  cursor: pointer;
+}
+
+.copyFeedback1 {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+.copyFeedback2 {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.copyFeedback1.show {
+  opacity: 1;
+}
+
+.copyFeedback2.show {
+  opacity: 1;
+}
+
+.section6 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(3, 7, 18);
+}
+.flex_col {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 97px auto 101px;
+  width: 576px;
+  max-width: 85%;
+  @include xs {
+    margin: 80px auto;
+  }
+  @include tn {
+    margin: 50px auto;
+  }
+}
+.btn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin: 0px auto;
+  width: 122px;
+  max-width: 100%;
+  font: 500 14px/1.42 "Inter", Helvetica, Arial, serif;
+  color: rgb(209, 213, 219);
+  text-align: center;
+  background-color: rgb(55, 65, 81);
+  border-radius: 12px 12px 12px 12px;
+  padding: 4px 20px 4px 20px;
+}
+.subtitle {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin: 16px 0px 0px;
+  font: 400 20px/1.4 "Inter", Helvetica, Arial, serif;
+  color: rgb(209, 213, 219);
+  text-align: center;
+  @include md {
+    align-items: flex-start;
+    font-size: 18px;
+  }
+  @include xxs {
+    font-size: 16px;
+  }
+}
+.flex_row {
+  position: relative;
+  display: flex;
+  gap: 0px 17px;
+  margin: 50px 0px 0px;
+  width: 95.83%;
+  @include sm {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px 17px;
+  }
+  @include tn {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 30px 8px;
+  }
+}
+.image29 {
+  position: relative;
+  margin: 4px 0px;
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+  @include sm {
+    margin-top: unset;
+    margin-bottom: unset;
+    width: 100%;
+    max-width: 32px;
+  }
+  @include tn {
+    margin-right: unset;
+    margin-left: unset;
+  }
+}
+.big_title {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  font: 600 36px/1.11 "Inter", Helvetica, Arial, serif;
+  color: rgb(249, 250, 251);
+  text-align: center;
+  letter-spacing: -0.72px;
+  @include md {
+    align-items: flex-start;
+    font-size: 32px;
+  }
+  @include sm {
+    margin-top: unset;
+    margin-bottom: unset;
+    width: 100%;
+  }
+  @include xxs {
+    font-size: 30px;
+  }
+  @include tn {
+    margin: auto;
+    font-size: 16px;
+  }
+}
+.flex_row1 {
+  position: relative;
+  display: flex;
+  gap: 0px 23px;
+  margin: 20px 0px 0px;
+  width: 401.984375px;
+  max-width: 85%;
+  @include xs {
+    column-gap: 16px;
+  }
+  @include tn {
+    align-items: center;
+    gap: 30px 8px;
+  }
+}
+.image291 {
+  position: relative;
+  margin: 4px 0px;
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+  @include tn {
+    margin-top: unset;
+    margin-right: unset;
+    margin-bottom: unset;
+    margin-left: unset;
+    width: 100%;
+    max-width: 32px;
+  }
+}
+.big_title1 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  font: 600 36px/1.11 "Inter", Helvetica, Arial, serif;
+  color: rgb(249, 250, 251);
+  text-align: center;
+  letter-spacing: -2.63px;
+  @include md {
+    align-items: flex-start;
+    font-size: 32px;
+  }
+  @include xxs {
+    font-size: 30px;
+  }
+  @include tn {
+    margin: auto;
+    width: 100%;
+    font-size: 16px;
+  }
+}
+.highlight2 {
+  position: relative;
+  display: flex;
+  margin: 50px 0px 0px;
+  font: 400 16px/1.5 "Inter", Helvetica, Arial, serif;
+  color: rgb(209, 213, 219);
+  @include tn {
+    justify-content: center;
+    align-items: flex-start;
+    text-align: center;
+    font-size: 16px;
+  }
+}
+.flex_row2 {
+  position: relative;
+  display: flex;
+  gap: 0px 16px;
+  margin: 14px 0px 0px;
+  width: 63.984375px;
+  max-width: 85%;
+  @include tn {
+    align-items: center;
+    gap: 8px;
+  }
+}
+.image {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  object-fit: cover;
+  @include tn {
+    margin-top: unset;
+    margin-bottom: unset;
+    width: 100%;
+  }
+}
