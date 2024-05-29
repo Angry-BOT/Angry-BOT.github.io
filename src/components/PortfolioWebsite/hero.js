@@ -62,7 +62,7 @@ function renderSection2(props) {
 
         <img
           className={heroStyles.image6}
-          src={"/assets/9df9bea73bfc0cd77558bce9183ba86c.png"}
+          src={"/assets/hero_picture.jpeg"}
           alt="alt text"
         />
       </div>

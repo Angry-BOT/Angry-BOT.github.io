@@ -29,12 +29,20 @@
     text-align: center;
     font-size: 14px;
   }
+    @include xs {
+      text-align: center;
+      font-size: 14px;
+    }
 }
 .text1_box {
   position: relative;
   display: flex;
   align-items: center;
   @include tn {
+    justify-content: center;
+    margin: auto;
+  }
+  @include xs {
     justify-content: center;
     margin: auto;
   }

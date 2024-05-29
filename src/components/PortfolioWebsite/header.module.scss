@@ -36,7 +36,7 @@
   align-items: center;
   margin: 0px auto auto 0px;
   min-width: 98px;
-  font: 700 30px/1.2 "Inter", Helvetica, Arial, serif;
+  font: 700 30px/1.2 "Roboto";
   color: rgb(249, 250, 251);
   text-align: center;
   letter-spacing: -0.6px;
@@ -53,10 +53,10 @@
 .flex_row1 {
   position: relative;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   align-content: center;
-  gap: 0px 5px;
+  // gap: 0px 20px;
   width: 369px;
   min-width: 0px;
   @include xs {
@@ -64,7 +64,7 @@
     column-gap: 16px;
   }
   @include xxs {
-    flex-direction: column;
+    flex-direction: row;
     gap: 8px 16px;
     margin-top: unset;
     margin-bottom: unset;
@@ -75,7 +75,7 @@
 .highlight {
   position: relative;
   display: flex;
-  font: 500 16px/1.5 "Inter", Helvetica, Arial, serif;
+  font: 500 16px/1.5 "Roboto";
   color: rgb(209, 213, 219);
   @include xxs {
     justify-content: center;
@@ -91,17 +91,17 @@
   position: relative;
   display: flex;
   justify-content: center;
-  min-width: 136px;
-  font: 500 16px/1.5 "Inter", Helvetica, Arial, serif;
+  min-width: 100px;
+  font: 500 16px/1.5 "Roboto";
   color: rgb(17, 24, 39);
   text-align: center;
   background-color: rgb(249, 250, 251);
-  border-radius: 12px 12px 12px 12px;
+  border-radius: 15px 15px 15px 15px;
   padding: 6px 16px 6px 16px;
   @include xxs {
     margin-top: unset;
     margin-bottom: unset;
-    width: 100%;
+    width: 55%;
   }
   @include tn {
     align-items: flex-start;

@@ -9,13 +9,12 @@ function scrollToSection(sectionId) {
 
 const handleDownload = () => {
   // URL of the file to be downloaded
-  const fileUrl = "././././assets/";
-  const fileName = "Resume_2024.pdf";
+  const fileUrl =
+    "https://drive.google.com/file/d/1mvgj97akaX7njDnKi-RsIO_-erzbAaFj/view?usp=sharing";
 
   // Create an invisible link element
   const link = document.createElement("a");
   link.href = fileUrl;
-  link.download = fileName;
 
   // Append the link to the document body and click it programmatically
   document.body.appendChild(link);
@@ -29,8 +28,7 @@ function renderHeaderSection(props) {
   return (
     <section className={headerSectionStyles.aboutSection}>
       <div className={headerSectionStyles.flex_row}>
-        <h1 className={headerSectionStyles.title}>{`<SD />`}</h1>
-
+        <h1 className={headerSectionStyles.title}>{`shailesh`}</h1>
         <div className={headerSectionStyles.flex_row1}>
           <button
             className={headerSectionStyles.highlight}
@@ -38,19 +36,17 @@ function renderHeaderSection(props) {
           >
             About
           </button>
-          <>|</>
           <button
             className={headerSectionStyles.highlight}
             onClick={() => scrollToSection("contact")}
           >
             Contact
           </button>
-          <>|</>
           <button
             className={headerSectionStyles.downloadButton}
             onClick={handleDownload}
           >
-            Download CV
+            Resume
           </button>
         </div>
       </div>

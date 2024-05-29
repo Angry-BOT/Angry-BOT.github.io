@@ -21,10 +21,10 @@
     gap: 30px 10px;
   }
   @include xs {
-    margin: 80px auto;
+    margin: 30px auto;
   }
   @include tn {
-    margin: 50px auto;
+    margin: 30px auto;
   }
 }
 .flex_col {
@@ -41,6 +41,10 @@
     min-width: unset;
   }
   @include tn {
+    flex: 0 1 auto;
+    order: 3;
+  }
+  @include xs {
     flex: 0 1 auto;
     order: 3;
   }
@@ -73,13 +77,18 @@
 .highlight2 {
   position: relative;
   display: flex;
-  font: 400 16px/1.5 "Inter", Helvetica, Arial, serif;
+  font: 500 16px/1.5 "Inter", Helvetica, Arial, serif;
   color: rgb(209, 213, 219);
   @include tn {
     justify-content: center;
     align-items: flex-start;
     text-align: center;
     font-size: 14px;
+  }
+  @include xs {
+    justify-content: center;
+    align-items: flex-start;
+    text-align: center;
   }
 }
 .flex_row1 {
@@ -132,16 +141,32 @@
 .image6 {
   position: relative;
   width: 280px;
+  border-radius: 50%;
   min-width: 0px;
   object-fit: cover;
   @include md {
     margin-top: unset;
     margin-bottom: unset;
-    width: 100%;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
     min-width: unset;
     max-width: 280px;
   }
   @include tn {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex: 0 1 auto;
+    order: 1;
+  }
+  @include xs {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
     flex: 0 1 auto;
     order: 1;
   }

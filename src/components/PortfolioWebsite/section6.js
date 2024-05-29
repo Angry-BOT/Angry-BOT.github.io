@@ -11,7 +11,7 @@ const RenderSection6 = (props) => {
   const [isCopied, setIsCopied] = useState(false);
 
   const copyContactNumberImageClick = async (val) => {
-    const phoneNumber = "+91 7001794582";
+    const phoneNumber = "+917001794582";
     const email = "shailo199925@gmail.com";
     try {
       if (val == "number") {
