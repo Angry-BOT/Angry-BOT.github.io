@@ -6,60 +6,15 @@ function handleImageClick(url) {
   window.open(url, "_blank", "noopener,noreferrer");
 }
 
-const RenderHeroSection = (props) => {
-  const [mousePosition, setMousePosition] = useState({
-    x: 0,
-    y: 0,
-  });
-  const [cursorVariant, setCursorVariant] = useState("default");
-
-  useEffect(() => {
-    const mouseMove = (e) => {
-      setMousePosition({
-        x: e.clientX,
-        y: e.clientY,
-      });
-    };
-
-    window.addEventListener("mousemove", mouseMove);
-
-    return () => {
-      window.removeEventListener("mousemove", mouseMove);
-    };
-  }, []);
-
-  const variants = {
-    default: {
-      x: mousePosition.x - 16,
-      y: mousePosition.y - 16,
-    },
-    text: {
-      height: 150,
-      width: 150,
-      x: mousePosition.x - 300,
-      y: mousePosition.y - 300,
-      backgroundColor: "white",
-      mixBlendMode: "difference",
-    },
-  };
-
-  const textEnter = () => setCursorVariant("text");
-  const textLeave = () => setCursorVariant("default");
-
+const RenderHeroSection = () => {
   return (
     <section className={heroStyles.section2}>
       <div className={heroStyles.flex_row}>
-        {/* <motion.div
-          className={heroStyles.cursor}
-          variants={variants}
-          animate={cursorVariant}
-          // animate="default"
-        /> */}
         <div className={heroStyles.flex_col}>
           <div className={heroStyles.flex_col1}>
             <h1
-              onMouseEnter={textEnter}
-              onMouseLeave={textLeave}
+              // onMouseEnter={textEnter}
+              // onMouseLeave={textLeave}
               className={heroStyles.hero_title}
             >
               Hi, I’m Shailesh Das👋
