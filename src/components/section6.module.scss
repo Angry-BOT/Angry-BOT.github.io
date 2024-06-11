@@ -1,5 +1,5 @@
-@use "../utils" as *;
-@use "../global" as *;
+@use "./utils" as *;
+@use "./global" as *;
 
 .image291 {
   cursor: pointer;
@@ -16,10 +16,14 @@
 
 .copyFeedback1.show {
   opacity: 1;
+  font: 400 16px/1.5 "Inter", Helvetica, Arial, serif;
+  color: white;
 }
 
 .copyFeedback2.show {
   opacity: 1;
+  font: 400 16px/1.5 "Inter", Helvetica, Arial, serif;
+  color: white;
 }
 
 .section6 {
@@ -250,4 +254,8 @@
     margin-bottom: unset;
     width: 100%;
   }
+}
+.copyStyleFont {
+  font: 400 16px/1.5 "Inter", Helvetica, Arial, serif;
+  color: white;
 }

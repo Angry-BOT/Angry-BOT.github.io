@@ -1,19 +1,69 @@
 import React from "react";
-import cn from "classnames";
-
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import heroStyles from "./hero.module.scss";
-
 function handleImageClick(url) {
   window.open(url, "_blank", "noopener,noreferrer");
 }
 
-function renderSection2(props) {
+const RenderHeroSection = (props) => {
+  const [mousePosition, setMousePosition] = useState({
+    x: 0,
+    y: 0,
+  });
+  const [cursorVariant, setCursorVariant] = useState("default");
+
+  useEffect(() => {
+    const mouseMove = (e) => {
+      setMousePosition({
+        x: e.clientX,
+        y: e.clientY,
+      });
+    };
+
+    window.addEventListener("mousemove", mouseMove);
+
+    return () => {
+      window.removeEventListener("mousemove", mouseMove);
+    };
+  }, []);
+
+  const variants = {
+    default: {
+      x: mousePosition.x - 16,
+      y: mousePosition.y - 16,
+    },
+    text: {
+      height: 150,
+      width: 150,
+      x: mousePosition.x - 300,
+      y: mousePosition.y - 300,
+      backgroundColor: "white",
+      mixBlendMode: "difference",
+    },
+  };
+
+  const textEnter = () => setCursorVariant("text");
+  const textLeave = () => setCursorVariant("default");
+
   return (
     <section className={heroStyles.section2}>
       <div className={heroStyles.flex_row}>
+        {/* <motion.div
+          className={heroStyles.cursor}
+          variants={variants}
+          animate={cursorVariant}
+          // animate="default"
+        /> */}
         <div className={heroStyles.flex_col}>
           <div className={heroStyles.flex_col1}>
-            <h1 className={heroStyles.hero_title}>Hi, I’m Shailesh Das👋</h1>
+            <h1
+              onMouseEnter={textEnter}
+              onMouseLeave={textLeave}
+              className={heroStyles.hero_title}
+            >
+              Hi, I’m Shailesh Das👋
+            </h1>
             <h5 className={heroStyles.highlight2}>
               A software engineer with 4+ years of experience designing,
               developing, and maintaining software systems and applications.
@@ -68,6 +118,6 @@ function renderSection2(props) {
       </div>
     </section>
   );
-}
+};
 
-export default renderSection2;
+export default RenderHeroSection;

@@ -1,6 +1,4 @@
 import React from "react";
-import cn from "classnames";
-
 import section5Styles from "./section5.module.scss";
 
 function renderSection5(props) {

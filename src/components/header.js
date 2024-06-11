@@ -1,6 +1,4 @@
 import React from "react";
-import cn from "classnames";
-
 import headerSectionStyles from "./header.module.scss";
 
 function scrollToSection(sectionId) {
@@ -24,7 +22,7 @@ const handleDownload = () => {
   document.body.removeChild(link);
 };
 
-function renderHeaderSection(props) {
+const renderHeaderSection = () => {
   return (
     <section className={headerSectionStyles.aboutSection}>
       <div className={headerSectionStyles.flex_row}>
@@ -52,6 +50,6 @@ function renderHeaderSection(props) {
       </div>
     </section>
   );
-}
+};
 
 export default renderHeaderSection;

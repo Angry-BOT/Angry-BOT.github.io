@@ -1,6 +1,4 @@
 import React from "react";
-import cn from "classnames";
-
 import footerStyles from "./footer.module.scss";
 
 function renderFooterSection(props) {

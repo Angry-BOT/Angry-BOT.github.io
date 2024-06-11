@@ -1,47 +1,30 @@
-import React, { Component } from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Redirect,
-} from "react-router-dom";
-import PortfolioWebsite from "components/PortfolioWebsite";
-import AOS from "aos";
-import Sticky from "sticky-js";
-import { isMobile } from "react-device-detect";
+import React from "react";
+import RenderHeaderSection from "./components/header.js";
+import RenderHeroSection from "./components/hero.js";
+import RenderSection3 from "./components/section3.js";
+import RenderSection4 from "./components/section4.js";
+import RenderSection5 from "./components/section5.js";
+import RenderSection6 from "./components/section6.js";
+import RenderFooterSection from "./components/footer.js";
 
-import "aos/dist/aos.css";
-import "./fonts.css";
-
-class App extends Component {
-  componentDidMount() {
-    setTimeout(() => {
-      AOS.init({
-        offset: isMobile ? 10 : 100,
-      });
-
-      this.sticky = new Sticky(".sticky-effect");
-    }, 1500);
-  }
-
-  componentDidUpdate() {
-    AOS.refresh();
-    if (this.sticky) {
-      this.sticky.destroy(); // Corrected typo from 'destory' to 'destroy'
-      this.sticky = new Sticky(".sticky-effect");
-    }
-  }
-
-  render() {
-    return (
-      <Router hashType="noslash" basename={process.env.BASE_PATH}>
-        <Switch>
-          <Route exact path="/PortfolioWebsite" component={PortfolioWebsite} />
-          <Redirect from="/" to="/PortfolioWebsite" />
-        </Switch>
-      </Router>
-    );
-  }
+function App() {
+  return (
+    // <Router hashType="noslash" basename={process.env.BASE_PATH}>
+    //   <Switch>
+    //     <Route exact path="/PortfolioWebsite" component={PortfolioWebsite} />
+    //     <Redirect from="/" to="/PortfolioWebsite" />
+    //   </Switch>
+    // </Router>
+    <div>
+      <RenderHeaderSection />
+      <RenderHeroSection />
+      <RenderSection3 />
+      <RenderSection4 />
+      <RenderSection5 />
+      <RenderSection6 />
+      <RenderFooterSection />
+    </div>
+  );
 }
 
 export default App;

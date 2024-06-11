@@ -1,34 +1,34 @@
 import React, { useState } from "react";
-import cn from "classnames";
-
 import section6Styles from "./section6.module.scss";
+import { color } from "framer-motion";
 
 const RenderSection6 = (props) => {
   function handleImageClick(url) {
     window.open(url, "_blank", "noopener,noreferrer");
   }
 
-  const [isCopied, setIsCopied] = useState(false);
+  const [isEmailCopied, setIsEmailCopied] = useState(false);
+  const [isNumberCopied, setIsNumberCopied] = useState(false);
 
-  const copyContactNumberImageClick = async (val) => {
+  const copyImageClick = async (val) => {
     const phoneNumber = "+917001794582";
     const email = "shailo199925@gmail.com";
     try {
-      if (val == "number") {
+      if (val === "number") {
         await navigator.clipboard.writeText(phoneNumber);
-        setIsCopied(true);
+        setIsNumberCopied(true);
         console.log("Phone number copied to clipboard!");
         // Automatically hide feedback after 2 seconds
         setTimeout(() => {
-          setIsCopied(false);
+          setIsNumberCopied(false);
         }, 2000);
       } else {
         await navigator.clipboard.writeText(email);
-        setIsCopied(true);
+        setIsEmailCopied(true);
         console.log("Email copied to clipboard!");
         // Automatically hide feedback after 2 seconds
         setTimeout(() => {
-          setIsCopied(false);
+          setIsEmailCopied(false);
         }, 2000);
       }
     } catch (err) {
@@ -54,15 +54,15 @@ const RenderSection6 = (props) => {
             className={section6Styles.image29}
             src={"/assets/5824f5e9f60ddb648700c1efeb3f79ac.svg"}
             alt="alt text"
-            onClick={() => copyContactNumberImageClick("email")}
+            onClick={() => copyImageClick("email")}
           />
         </div>
         <span
           className={`${section6Styles.copyFeedback1} ${
-            isCopied ? section6Styles.show : ""
+            isEmailCopied ? section6Styles.show : ""
           }`}
         >
-          Copied to clipboard!
+          {`Copied to clipboard!`}
         </span>
         <div className={section6Styles.flex_row1}>
           <img
@@ -75,15 +75,15 @@ const RenderSection6 = (props) => {
             className={section6Styles.image291}
             src={"/assets/5824f5e9f60ddb648700c1efeb3f79ac.svg"}
             alt="alt text"
-            onClick={() => copyContactNumberImageClick("number")}
+            onClick={() => copyImageClick("number")}
           />
         </div>
         <span
           className={`${section6Styles.copyFeedback2} ${
-            isCopied ? section6Styles.show : ""
+            isNumberCopied ? section6Styles.show : ""
           }`}
         >
-          Copied to clipboard!
+          {`Copied to clipboard!`}
         </span>
         <h5 className={section6Styles.highlight2}>
           You may also find me on these platforms!

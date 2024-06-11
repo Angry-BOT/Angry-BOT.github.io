@@ -1,5 +1,5 @@
-@use "../utils" as *;
-@use "../global" as *;
+@use "./utils" as *;
+@use "./global" as *;
 
 .aboutSection {
   position: relative;
@@ -62,7 +62,7 @@
   @include xs {
     justify-content: flex-end;
     column-gap: 16px;
-  }
+    }
   @include xxs {
     flex-direction: row;
     gap: 8px 16px;
@@ -107,4 +107,16 @@
     align-items: flex-start;
     font-size: 16px;
   }
+}
+
+.cursor {
+  background-color: #ffffff;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 99999999;
 }
