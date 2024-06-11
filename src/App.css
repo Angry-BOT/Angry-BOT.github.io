@@ -1,15 +1,29 @@
+* {
+  cursor: none;
+  font-family: sofia-pro, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+}
+
 .cursor {
   background-color: #ffffff;
-  height: 32px;
-  width: 32px;
+  height: 22px;
+  width: 22px;
   border-radius: 50%;
   position: fixed;
   top: 0;
   left: 0;
   pointer-events: none;
-  z-index: 10000000;
+  z-index: 99999;
 }
 
-* {
-  cursor: none;
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: var(--red);
+  transform-origin: 0%;
 }

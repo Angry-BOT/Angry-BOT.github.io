@@ -7,18 +7,62 @@ function handleImageClick(url) {
 }
 
 const RenderHeroSection = () => {
+  const [mousePosition, setMousePosition] = useState({
+    x: 0,
+    y: 0,
+  });
+  const [cursorVariant, setCursorVariant] = useState("default");
+
+  useEffect(() => {
+    const mouseMove = (e) => {
+      setMousePosition({
+        x: e.clientX,
+        y: e.clientY,
+      });
+    };
+
+    window.addEventListener("mousemove", mouseMove);
+
+    return () => {
+      window.removeEventListener("mousemove", mouseMove);
+    };
+  }, []);
+
+  const variants = {
+    default: {
+      x: mousePosition.x - 16,
+      y: mousePosition.y - 16,
+    },
+    text: {
+      height: 120,
+      width: 120,
+      x: mousePosition.x - 75,
+      y: mousePosition.y - 75,
+      backgroundColor: "white",
+      mixBlendMode: "difference",
+    },
+  };
+
+  const textEnter = () => setCursorVariant("text");
+  const textLeave = () => setCursorVariant("default");
+
   return (
     <section className={heroStyles.section2}>
       <div className={heroStyles.flex_row}>
         <div className={heroStyles.flex_col}>
           <div className={heroStyles.flex_col1}>
-            <h1
-              // onMouseEnter={textEnter}
-              // onMouseLeave={textLeave}
+            <motion.h1
+              onMouseEnter={textEnter}
+              onMouseLeave={textLeave}
               className={heroStyles.hero_title}
             >
               Hi, I’m Shailesh Das👋
-            </h1>
+            </motion.h1>
+            <motion.div
+              className="cursor"
+              variants={variants}
+              animate={cursorVariant}
+            />
             <h5 className={heroStyles.highlight2}>
               A software engineer with 4+ years of experience designing,
               developing, and maintaining software systems and applications.
@@ -65,7 +109,10 @@ const RenderHeroSection = () => {
           </div>
         </div>
 
-        <img
+        <motion.img
+          whileHover={{ scale: 1.2 }}
+          onHoverStart={(e) => {}}
+          onHoverEnd={(e) => {}}
           className={heroStyles.image6}
           src={"/assets/hero_picture.jpeg"}
           alt="alt text"

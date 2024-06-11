@@ -171,3 +171,15 @@
     order: 1;
   }
 }
+
+.cursor {
+  background-color: #ffffff;
+  height: 22px;
+  width: 22px;
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 99999;
+}
