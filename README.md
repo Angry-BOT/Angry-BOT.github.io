@@ -1,6 +1,157 @@
-# Getting Started with Create React App
+# Project Structure Documentation
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This document outlines the organized, production-ready structure of the my portfolio website.
+
+## 📁 Directory Structure
+
+```
+src/
+├── components/
+│   ├── layout/
+│   │   ├── Header.jsx          # Navigation header component
+│   │   └── Footer.jsx          # Footer component
+│   ├── sections/
+│   │   ├── HeroSection.jsx     # Landing/intro section
+│   │   ├── AboutSection.jsx    # About me section
+│   │   ├── SkillsSection.jsx   # Skills and technologies
+│   │   ├── ExperienceSection.jsx # Work experience
+│   │   └── ContactSection.jsx  # Contact information
+│   └── index.js                # Component exports
+├── styles/
+│   ├── components/
+│   │   ├── Header.module.scss
+│   │   ├── Footer.module.scss
+│   │   ├── HeroSection.module.scss
+│   │   ├── AboutSection.module.scss
+│   │   ├── SkillsSection.module.scss
+│   │   ├── ExperienceSection.module.scss
+│   │   └── ContactSection.module.scss
+│   └── global/
+│       ├── App.css
+│       ├── common.css
+│       ├── fonts.css
+│       ├── global.scss
+│       └── utils.scss
+├── assets/
+│   ├── images/                 # PNG, JPEG images
+│   ├── icons/                  # SVG icons
+│   └── documents/              # PDF files, resume
+├── constants/
+│   └── index.js                # App constants and data
+├── utils/
+│   └── index.js                # Utility functions
+├── App.js                      # Main app component
+└── index.js                    # App entry point
+```
+
+## 🏗️ Architecture Principles
+
+### 1. **Separation of Concerns**
+- **Layout Components**: Reusable layout elements (Header, Footer)
+- **Section Components**: Page-specific content sections
+- **Styles**: Organized by component with global styles separated
+- **Assets**: Categorized by type (images, icons, documents)
+
+### 2. **Naming Conventions**
+- **Components**: PascalCase with descriptive names (e.g., `HeroSection.jsx`)
+- **Files**: Consistent naming that reflects content purpose
+- **Styles**: Component-specific SCSS modules with matching names
+
+### 3. **Import Organization**
+- **Barrel Exports**: Clean imports using `src/components/index.js`
+- **Relative Paths**: Consistent relative import paths
+- **Asset Paths**: Organized asset references
+
+### 4. **Scalability Features**
+- **Constants**: Centralized data management
+- **Utils**: Reusable utility functions
+- **Modular Styles**: Component-scoped styling
+- **Asset Organization**: Easy asset management
+
+## 📋 Component Breakdown
+
+### Layout Components
+- **Header**: Navigation, logo, resume download
+- **Footer**: Copyright and attribution
+
+### Section Components
+- **HeroSection**: Introduction, profile image, social links
+- **AboutSection**: Personal story, background, quick facts
+- **SkillsSection**: Technical skills and tools
+- **ExperienceSection**: Work history and achievements
+- **ContactSection**: Contact information with copy functionality
+
+## 🎨 Styling Architecture
+
+### SCSS Modules
+- Each component has its own SCSS module
+- Scoped styling prevents conflicts
+- Consistent naming conventions
+
+### Global Styles
+- Common styles in `styles/global/`
+- Typography, fonts, and utilities
+- App-wide CSS variables and mixins
+
+## 📦 Assets Management
+
+### Images (`src/assets/images/`)
+- Profile pictures
+- Company logos
+- Technology logos
+
+### Icons (`src/assets/icons/`)
+- UI icons (SVG format)
+- Social media icons
+- Technology icons
+
+### Documents (`src/assets/documents/`)
+- Resume/CV files
+- Certificates
+- Other downloadable content
+
+## 🔧 Utilities & Constants
+
+### Constants (`src/constants/index.js`)
+- Personal information
+- Social media links
+- Navigation items
+- Skills data
+- Experience data
+
+### Utils (`src/utils/index.js`)
+- Smooth scrolling
+- Clipboard operations
+- File downloads
+- Date formatting
+- Debounce functions
+
+## 🚀 Benefits of This Structure
+
+1. **Maintainability**: Easy to locate and modify specific components
+2. **Scalability**: Simple to add new sections or features
+3. **Reusability**: Components can be easily reused or extracted
+4. **Performance**: Optimized imports and asset loading
+5. **Developer Experience**: Clear organization and consistent patterns
+6. **Production Ready**: Follows industry best practices
+
+## 📝 Usage Examples
+
+### Adding a New Section
+1. Create component in `src/components/sections/`
+2. Create corresponding SCSS in `src/styles/components/`
+3. Export from `src/components/index.js`
+4. Import and use in `App.js`
+
+### Updating Constants
+- Modify `src/constants/index.js` for data changes
+- Components automatically reflect updates
+
+### Adding New Assets
+- Place in appropriate `src/assets/` subdirectory
+- Reference using `/assets/` path in components
+
+This structure provides a solid foundation for a professional, maintainable React application. 
 
 ## Available Scripts
 
