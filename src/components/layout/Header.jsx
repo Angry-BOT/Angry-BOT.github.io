@@ -1,5 +1,5 @@
-import React from "react";
-import headerSectionStyles from "./header.module.scss";
+import React, { useState, useEffect } from "react";
+import headerStyles from "../../styles/components/Header.module.scss";
 
 function scrollToSection(sectionId) {
   document.getElementById(sectionId).scrollIntoView({ behavior: "smooth" });
@@ -22,26 +22,38 @@ const handleDownload = () => {
   document.body.removeChild(link);
 };
 
-const renderHeaderSection = () => {
+const Header = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      setIsScrolled(scrollTop > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <section className={headerSectionStyles.aboutSection}>
-      <div className={headerSectionStyles.flex_row}>
-        <h1 className={headerSectionStyles.title}>{`shailesh`}</h1>
-        <div className={headerSectionStyles.flex_row1}>
+    <section className={`${headerStyles.aboutSection} ${isScrolled ? headerStyles.scrolled : ''}`}>
+      <div className={headerStyles.flex_row}>
+        <h1 className={headerStyles.title}>{`shailesh`}</h1>
+        <div className={headerStyles.flex_row1}>
           <button
-            className={headerSectionStyles.highlight}
+            className={headerStyles.highlight}
             onClick={() => scrollToSection("about")}
           >
             About
           </button>
           <button
-            className={headerSectionStyles.highlight}
+            className={headerStyles.highlight}
             onClick={() => scrollToSection("contact")}
           >
             Contact
           </button>
           <button
-            className={headerSectionStyles.downloadButton}
+            className={headerStyles.downloadButton}
             onClick={handleDownload}
           >
             Resume
@@ -52,4 +64,4 @@ const renderHeaderSection = () => {
   );
 };
 
-export default renderHeaderSection;
+export default Header; 

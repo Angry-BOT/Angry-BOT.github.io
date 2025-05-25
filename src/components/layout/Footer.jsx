@@ -1,7 +1,7 @@
 import React from "react";
-import footerStyles from "./footer.module.scss";
+import footerStyles from "../../styles/components/Footer.module.scss";
 
-function renderFooterSection(props) {
+const Footer = () => {
   return (
     <section className={footerStyles.section7}>
       <div className={footerStyles.flex_row}>
@@ -17,6 +17,6 @@ function renderFooterSection(props) {
       </div>
     </section>
   );
-}
+};
 
-export default renderFooterSection;
+export default Footer; 

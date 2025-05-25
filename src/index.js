@@ -3,7 +3,8 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 
 import "normalize.css";
-import "./common.css";
+import "./styles/global/common.css";
+import "./styles/global/fonts.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
