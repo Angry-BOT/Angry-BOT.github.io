@@ -24,6 +24,7 @@ const handleDownload = () => {
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,26 +36,51 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const handleNavClick = (sectionId) => {
+    scrollToSection(sectionId);
+    setIsMobileMenuOpen(false); // Close menu after navigation
+  };
+
   return (
     <section className={`${headerStyles.aboutSection} ${isScrolled ? headerStyles.scrolled : ''}`}>
       <div className={headerStyles.flex_row}>
         <h1 className={headerStyles.title}>{`shailesh`}</h1>
-        <div className={headerStyles.flex_row1}>
+        
+        {/* Mobile Menu Button */}
+        <button 
+          className={headerStyles.mobileMenuButton}
+          onClick={toggleMobileMenu}
+          aria-label="Toggle mobile menu"
+        >
+          <span className={`${headerStyles.hamburgerLine} ${isMobileMenuOpen ? headerStyles.open : ''}`}></span>
+          <span className={`${headerStyles.hamburgerLine} ${isMobileMenuOpen ? headerStyles.open : ''}`}></span>
+          <span className={`${headerStyles.hamburgerLine} ${isMobileMenuOpen ? headerStyles.open : ''}`}></span>
+        </button>
+
+        {/* Navigation Menu */}
+        <div className={`${headerStyles.flex_row1} ${isMobileMenuOpen ? headerStyles.mobileMenuOpen : ''}`}>
           <button
             className={headerStyles.highlight}
-            onClick={() => scrollToSection("about")}
+            onClick={() => handleNavClick("about")}
           >
             About
           </button>
           <button
             className={headerStyles.highlight}
-            onClick={() => scrollToSection("contact")}
+            onClick={() => handleNavClick("contact")}
           >
             Contact
           </button>
           <button
             className={headerStyles.downloadButton}
-            onClick={handleDownload}
+            onClick={() => {
+              handleDownload();
+              setIsMobileMenuOpen(false);
+            }}
           >
             Resume
           </button>

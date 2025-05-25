@@ -46,8 +46,10 @@
     width: 85%;
   }
   @include xxs {
-    flex-direction: column;
-    gap: 20px 8px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
   }
 }
 
@@ -74,7 +76,6 @@
   }
   @include xxs {
     margin: 0px auto 0px 0px;
-    width: 100%;
     min-width: unset;
     font-size: 24px;
   }
@@ -95,12 +96,24 @@
     column-gap: 16px;
   }
   @include xxs {
-    flex-direction: row;
-    gap: 8px 16px;
-    margin-top: unset;
-    margin-bottom: unset;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 8px;
     width: 100%;
     min-width: unset;
+    background-color: rgba(3, 7, 18, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 0 0 12px 12px;
+    padding: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transform: translateY(-10px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
   }
 }
 
@@ -143,12 +156,13 @@
 
   @include xxs {
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     margin-top: unset;
     margin-bottom: unset;
     width: 100%;
     text-align: center;
     font-size: 16px;
+    padding: 12px;
   }
 }
 
@@ -196,7 +210,8 @@
   @include xxs {
     margin-top: unset;
     margin-bottom: unset;
-    width: 55%;
+    width: 100%;
+    padding: 12px 16px;
   }
   @include tn {
     align-items: flex-start;
@@ -231,4 +246,59 @@
 // Smooth scroll behavior for the entire page
 :global(html) {
   scroll-behavior: smooth;
+}
+
+// Mobile menu open state
+.mobileMenuOpen {
+  @include xxs {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+// Mobile menu button
+.mobileMenuButton {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  @include xxs {
+    display: flex;
+  }
+}
+
+// Hamburger lines
+.hamburgerLine {
+  width: 24px;
+  height: 2px;
+  background-color: rgb(249, 250, 251);
+  margin: 3px 0;
+  transition: all 0.3s ease-in-out;
+  transform-origin: center;
+
+  &.open {
+    &:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    &:nth-child(2) {
+      opacity: 0;
+    }
+    &:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -6px);
+    }
+  }
 }
