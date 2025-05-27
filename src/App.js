@@ -40,12 +40,6 @@ function App() {
   };
 
   return (
-    // <Router hashType="noslash" basename={process.env.BASE_PATH}>
-    //   <Switch>
-    //     <Route exact path="/PortfolioWebsite" component={PortfolioWebsite} />
-    //     <Redirect from="/" to="/PortfolioWebsite" />
-    //   </Switch>
-    // </Router>
     <div>
       <motion.div className="cursor" variants={variants} animate="default" />
       <Header />
