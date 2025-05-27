@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import headerStyles from "../../styles/components/Header.module.scss";
+import MobileMenu from "./MobileMenu";
 
 function scrollToSection(sectionId) {
   document.getElementById(sectionId).scrollIntoView({ behavior: "smooth" });
@@ -36,57 +37,64 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleNavClick = (sectionId) => {
+    scrollToSection(sectionId);
+  };
+
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  const handleNavClick = (sectionId) => {
-    scrollToSection(sectionId);
-    setIsMobileMenuOpen(false); // Close menu after navigation
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
   };
 
   return (
-    <section className={`${headerStyles.aboutSection} ${isScrolled ? headerStyles.scrolled : ''}`}>
-      <div className={headerStyles.flex_row}>
-        <h1 className={headerStyles.title}>{`shailesh`}</h1>
-        
-        {/* Mobile Menu Button */}
-        <button 
-          className={headerStyles.mobileMenuButton}
-          onClick={toggleMobileMenu}
-          aria-label="Toggle mobile menu"
-        >
-          <span className={`${headerStyles.hamburgerLine} ${isMobileMenuOpen ? headerStyles.open : ''}`}></span>
-          <span className={`${headerStyles.hamburgerLine} ${isMobileMenuOpen ? headerStyles.open : ''}`}></span>
-          <span className={`${headerStyles.hamburgerLine} ${isMobileMenuOpen ? headerStyles.open : ''}`}></span>
-        </button>
+    <>
+      <section className={`${headerStyles.aboutSection} ${isScrolled ? headerStyles.scrolled : ''}`}>
+        <div className={headerStyles.flex_row}>
+          <h1 className={headerStyles.title}>{`shailesh`}</h1>
 
-        {/* Navigation Menu */}
-        <div className={`${headerStyles.flex_row1} ${isMobileMenuOpen ? headerStyles.mobileMenuOpen : ''}`}>
-          <button
-            className={headerStyles.highlight}
-            onClick={() => handleNavClick("about")}
+          {/* Mobile Menu Button */}
+          <button 
+            className={headerStyles.mobileMenuButton}
+            onClick={toggleMobileMenu}
+            aria-label="Toggle mobile menu"
           >
-            About
+            <span className={`${headerStyles.hamburger} ${isMobileMenuOpen ? headerStyles.active : ''}`}>
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
           </button>
-          <button
-            className={headerStyles.highlight}
-            onClick={() => handleNavClick("contact")}
-          >
-            Contact
-          </button>
-          <button
-            className={headerStyles.downloadButton}
-            onClick={() => {
-              handleDownload();
-              setIsMobileMenuOpen(false);
-            }}
-          >
-            Resume
-          </button>
+
+          {/* Desktop Navigation Menu */}
+          <div className={headerStyles.flex_row1}>
+            <button
+              className={headerStyles.highlight}
+              onClick={() => handleNavClick("about")}
+            >
+              About
+            </button>
+            <button
+              className={headerStyles.highlight}
+              onClick={() => handleNavClick("contact")}
+            >
+              Contact
+            </button>
+            <button
+              className={headerStyles.downloadButton}
+              onClick={handleDownload}
+            >
+              Resume
+            </button>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* Mobile Menu - Rendered outside using Portal */}
+      <MobileMenu isOpen={isMobileMenuOpen} onClose={closeMobileMenu} />
+    </>
   );
 };
 

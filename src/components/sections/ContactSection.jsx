@@ -148,9 +148,11 @@ const ContactSection = () => {
           left: 0,
           width: '100%',
           height: '100%',
+          maxWidth: '100%',
           opacity: 0.1,
           zIndex: -1,
-          background: 'linear-gradient(135deg, #667eea, #764ba2)'
+          background: 'linear-gradient(135deg, #667eea, #764ba2)',
+          overflow: 'hidden'
         }}
       />
       

@@ -67,8 +67,8 @@ const AboutSection = () => {
   }, []);
 
   return (
-    <section className={aboutStyles.aboutSection} ref={sectionRef}>
-      <div className={aboutStyles.container} id="about">
+    <section className={aboutStyles.aboutSection} ref={sectionRef} id="about">
+      <div className={aboutStyles.container}>
         <div className={aboutStyles.badge} ref={badgeRef}>About Me</div>
         
         <div className={aboutStyles.content}>

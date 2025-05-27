@@ -71,7 +71,13 @@ function App() {
   };
 
   return (
-    <div ref={appRef}>
+    <div ref={appRef} style={{
+      overflow: 'hidden',
+      overflowX: 'hidden',
+      maxWidth: '100vw',
+      width: '100%',
+      position: 'relative'
+    }}>
       <ScrollProgressIndicator />
       <motion.div className="cursor" variants={variants} animate="default" />
       <Header />
