@@ -14,8 +14,8 @@ const getResponsiveScrollTrigger = (baseSettings = {}) => {
   const tablet = isTablet();
   
   const defaultSettings = {
-    start: "top 80%",
-    end: "bottom 20%",
+    start: "top 90%",
+    end: "bottom 10%",
     toggleActions: "play none none reverse"
   };
   
@@ -199,7 +199,7 @@ export const scaleRotateReveal = (elements, options = {}) => {
 export const slideInFromSides = (leftElements, rightElements, options = {}) => {
   const { duration = 0.8, stagger = 0.2, distance = 100 } = options;
   const mobile = isMobile();
-  const adjustedDistance = mobile ? distance * 0.6 : distance;
+  const adjustedDistance = mobile ? Math.min(distance * 0.4, 30) : distance; // Much smaller distance on mobile
   const adjustedDuration = mobile ? duration * 0.8 : duration;
 
   const leftAnimation = gsap.fromTo(leftElements,
@@ -352,6 +352,13 @@ export const floatingParticles = (container, options = {}) => {
   const { count = 20, speed = 0.5 } = options;
   const mobile = isMobile();
   
+  // Ensure container has proper containment styles
+  const containerStyles = window.getComputedStyle(container);
+  if (containerStyles.position === 'static') {
+    container.style.position = 'relative';
+  }
+  container.style.overflow = 'hidden'; // Prevent particles from causing overflow
+  
   // Reduce particle count on mobile
   const adjustedCount = mobile ? Math.floor(count * 0.5) : count;
   const particles = [];
@@ -366,20 +373,26 @@ export const floatingParticles = (container, options = {}) => {
       background: rgba(255, 255, 255, ${mobile ? '0.2' : '0.3'});
       border-radius: 50%;
       pointer-events: none;
+      z-index: 1;
     `;
     
     container.appendChild(particle);
     particles.push(particle);
 
+    // Ensure particles stay within container bounds
+    const containerRect = container.getBoundingClientRect();
+    const maxX = container.offsetWidth - 10; // Padding from edges
+    const maxY = container.offsetHeight - 10;
+
     gsap.set(particle, {
-      x: Math.random() * container.offsetWidth,
-      y: Math.random() * container.offsetHeight,
+      x: Math.min(Math.random() * maxX, maxX),
+      y: Math.min(Math.random() * maxY, maxY),
       scale: Math.random() * 0.5 + 0.5
     });
 
-    // Simplified animation for mobile
+    // Contained animation for mobile
     gsap.to(particle, {
-      y: "-=50",
+      y: `+=${Math.random() * 30 - 15}`, // Smaller movement
       duration: Math.random() * 3 + 2,
       repeat: -1,
       yoyo: true,
@@ -389,7 +402,7 @@ export const floatingParticles = (container, options = {}) => {
 
     if (!mobile) {
       gsap.to(particle, {
-        x: `+=${Math.random() * 100 - 50}`,
+        x: `+=${Math.random() * 40 - 20}`, // Smaller horizontal movement
         duration: Math.random() * 4 + 3,
         repeat: -1,
         yoyo: true,
