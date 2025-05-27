@@ -1,11 +1,15 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 import "./styles/global/App.css";
+import useGSAP from "./hooks/useGSAP";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import {
   Header,
   Footer,
+  ScrollProgressIndicator,
   HeroSection,
   AboutSection,
   SkillsSection,
@@ -13,7 +17,11 @@ import {
   ContactSection,
 } from "./components";
 
+// Register GSAP plugins
+gsap.registerPlugin(ScrollTrigger);
+
 function App() {
+  const appRef = useRef(null);
   const [mousePosition, setMousePosition] = useState({
     x: 0,
     y: 0,
@@ -32,6 +40,29 @@ function App() {
     };
   }, []);
 
+  // GSAP smooth scroll setup
+  useGSAP(() => {
+    // Refresh ScrollTrigger when the page loads
+    ScrollTrigger.refresh();
+
+    // Add smooth scrolling behavior
+    gsap.config({
+      force3D: true,
+      nullTargetWarn: false
+    });
+
+    // Optional: Add page load animation
+    if (appRef.current) {
+      gsap.set(appRef.current, { opacity: 0 });
+      gsap.to(appRef.current, {
+        opacity: 1,
+        duration: 0.8,
+        ease: "power2.out",
+        delay: 0.2
+      });
+    }
+  }, []);
+
   const variants = {
     default: {
       x: mousePosition.x - 16,
@@ -40,7 +71,8 @@ function App() {
   };
 
   return (
-    <div>
+    <div ref={appRef}>
+      <ScrollProgressIndicator />
       <motion.div className="cursor" variants={variants} animate="default" />
       <Header />
       <HeroSection />
