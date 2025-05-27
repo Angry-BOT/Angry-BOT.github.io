@@ -1,13 +1,18 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 import heroStyles from "../../styles/components/HeroSection.module.scss";
+import useGSAP from "../../hooks/useGSAP";
+import { floatingParticles, morphingBackground } from "../../utils/gsapAnimations";
 
 function handleImageClick(url) {
   window.open(url, "_blank", "noopener,noreferrer");
 }
 
 const HeroSection = () => {
+  const sectionRef = useRef(null);
+  const backgroundRef = useRef(null);
+  
   const [mousePosition, setMousePosition] = useState({
     x: 0,
     y: 0,
@@ -29,6 +34,22 @@ const HeroSection = () => {
     };
   }, []);
 
+  // GSAP animations
+  useGSAP(() => {
+    if (!sectionRef.current) return;
+
+    // Create floating particles background
+    floatingParticles(sectionRef.current, { count: 30, speed: 0.3 });
+
+    // Morphing background animation
+    if (backgroundRef.current) {
+      morphingBackground(backgroundRef.current, { 
+        duration: 8, 
+        colors: ['#667eea', '#764ba2', '#f093fb', '#6a82fb', '#4facfe'] 
+      });
+    }
+  }, []);
+
   const variants = {
     default: {
       x: mousePosition.x - 16,
@@ -48,7 +69,22 @@ const HeroSection = () => {
   const textLeave = () => setCursorVariant("default");
 
   return (
-    <section className={heroStyles.section2}>
+    <section className={heroStyles.section2} ref={sectionRef}>
+      {/* Morphing background */}
+      <div 
+        ref={backgroundRef}
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          opacity: 0.05,
+          zIndex: -1,
+          background: 'linear-gradient(135deg, #667eea, #764ba2)'
+        }}
+      />
+      
       <div className={heroStyles.flex_row}>
         <div className={heroStyles.flex_col}>
           <div className={heroStyles.flex_col1}>

@@ -1,6 +1,7 @@
 // Layout Components
 export { default as Header } from './layout/Header.jsx';
 export { default as Footer } from './layout/Footer.jsx';
+export { default as ScrollProgressIndicator } from './layout/ScrollProgressIndicator.jsx';
 
 // Section Components
 export { default as HeroSection } from './sections/HeroSection.jsx';

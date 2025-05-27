@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import skillsStyles from "../../styles/components/SkillsSection.module.scss";
+import useGSAP from "../../hooks/useGSAP";
+import { fadeInStagger, scaleRotateReveal, magneticHover, floatingParticles } from "../../utils/gsapAnimations";
 
 const SkillsSection = () => {
+  const sectionRef = useRef(null);
+  const badgeRef = useRef(null);
+  const titleRef = useRef(null);
+  const subtitleRef = useRef(null);
+  const skillCardsRef = useRef([]);
+
   const skills = [
     {
       name: "JavaScript",
@@ -65,22 +73,92 @@ const SkillsSection = () => {
     }
   ];
 
+  // Add skill cards to ref array
+  const addToSkillCards = (el) => {
+    if (el && !skillCardsRef.current.includes(el)) {
+      skillCardsRef.current.push(el);
+    }
+  };
+
+  useGSAP(() => {
+    if (!sectionRef.current) return;
+
+    // Create floating particles background
+    floatingParticles(sectionRef.current, { count: 15, speed: 0.3 });
+
+    // Animate header elements
+    if (badgeRef.current) {
+      fadeInStagger([badgeRef.current], { 
+        duration: 0.6, 
+        y: 30, 
+        delay: 0.2 
+      });
+    }
+
+    if (titleRef.current) {
+      fadeInStagger([titleRef.current], { 
+        duration: 0.8, 
+        y: 40, 
+        delay: 0.4 
+      });
+    }
+
+    if (subtitleRef.current) {
+      fadeInStagger([subtitleRef.current], { 
+        duration: 0.8, 
+        y: 30, 
+        delay: 0.6 
+      });
+    }
+
+    // Animate skill cards with premium effects
+    if (skillCardsRef.current.length > 0) {
+      scaleRotateReveal(skillCardsRef.current, {
+        duration: 1,
+        stagger: 0.1,
+        scale: 0.7,
+        rotation: 8,
+        ease: "back.out(1.7)"
+      });
+    }
+  }, []);
+
+  // Add magnetic hover effects after component mounts
+  useEffect(() => {
+    const cleanupFunctions = [];
+    
+    skillCardsRef.current.forEach(card => {
+      if (card) {
+        const cleanup = magneticHover(card);
+        cleanupFunctions.push(cleanup);
+      }
+    });
+
+    return () => {
+      cleanupFunctions.forEach(cleanup => cleanup && cleanup());
+    };
+  }, []);
+
   return (
-    <section className={skillsStyles.skillsSection} id="skills">
+    <section className={skillsStyles.skillsSection} id="skills" ref={sectionRef}>
       <div className={skillsStyles.container}>
         <div className={skillsStyles.header}>
-          <div className={skillsStyles.badge}>Skills</div>
-          <h2 className={skillsStyles.title}>
+          <div className={skillsStyles.badge} ref={badgeRef}>Skills</div>
+          <h2 className={skillsStyles.title} ref={titleRef}>
             Technologies I work with
           </h2>
-          <p className={skillsStyles.subtitle}>
+          <p className={skillsStyles.subtitle} ref={subtitleRef}>
             A comprehensive toolkit for building modern applications
           </p>
         </div>
 
         <div className={skillsStyles.skillsGrid}>
           {skills.map((skill, index) => (
-            <div key={index} className={skillsStyles.skillCard}>
+            <div 
+              key={index} 
+              className={skillsStyles.skillCard}
+              ref={addToSkillCards}
+            >
                 <img
                   src={skill.icon}
                   alt={skill.alt}
