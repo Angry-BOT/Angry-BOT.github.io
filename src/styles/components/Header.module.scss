@@ -42,7 +42,7 @@
     column-gap: 8px;
     width: 85%;
   }
-  @include xxs {
+  @include sm {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
@@ -71,7 +71,7 @@
   @include md {
     font-size: 28px;
   }
-  @include xxs {
+  @include sm {
     margin: 0px auto 0px 0px;
     min-width: unset;
     font-size: 24px;
@@ -92,7 +92,7 @@
     justify-content: flex-end;
     column-gap: 16px;
   }
-  @include xxs {
+  @include sm {
     position: absolute;
     top: 100%;
     left: 0;
@@ -151,7 +151,7 @@
     transform: translateY(0);
   }
 
-  @include xxs {
+  @include sm {
     justify-content: center;
     align-items: center;
     margin-top: unset;
@@ -204,15 +204,11 @@
     transform: translateY(0) scale(1);
   }
 
-  @include xxs {
+  @include sm {
     margin-top: unset;
     margin-bottom: unset;
     width: 100%;
     padding: 12px 16px;
-  }
-  @include tn {
-    align-items: flex-start;
-    font-size: 16px;
   }
 }
 
@@ -247,7 +243,7 @@
 
 // Mobile menu open state
 .mobileMenuOpen {
-  @include xxs {
+  @include sm {
     transform: translateY(0);
     opacity: 1;
     visibility: visible;
@@ -273,7 +269,7 @@
     background-color: rgba(255, 255, 255, 0.1);
   }
 
-  @include xxs {
+  @include sm {
     display: flex;
   }
 }
@@ -298,4 +294,4 @@
       transform: rotate(-45deg) translate(7px, -6px);
     }
   }
-}
+} 

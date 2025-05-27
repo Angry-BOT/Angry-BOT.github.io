@@ -101,12 +101,15 @@ const ExperienceSection = () => {
   useGSAP(() => {
     if (!sectionRef.current) return;
 
-    // Animate header elements
+    const isMobile = window.innerWidth <= 768;
+
+    // Animate header elements with responsive settings
     if (badgeRef.current) {
       fadeInStagger([badgeRef.current], { 
         duration: 0.6, 
         y: 30, 
-        delay: 0.2 
+        delay: 0.2,
+        scrollTriggerSettings: { start: "top 90%" }
       });
     }
 
@@ -114,7 +117,8 @@ const ExperienceSection = () => {
       fadeInStagger([titleRef.current], { 
         duration: 0.8, 
         y: 40, 
-        delay: 0.4 
+        delay: 0.4,
+        scrollTriggerSettings: { start: "top 90%" }
       });
     }
 
@@ -122,86 +126,92 @@ const ExperienceSection = () => {
       fadeInStagger([subtitleRef.current], { 
         duration: 0.8, 
         y: 30, 
-        delay: 0.6 
+        delay: 0.6,
+        scrollTriggerSettings: { start: "top 90%" }
       });
     }
 
-    // Animate timeline lines progressively
+    // Animate timeline lines progressively with better mobile triggers
     timelineLinesRef.current.forEach((line, index) => {
       if (line) {
         gsap.fromTo(line, 
           { scaleY: 0, transformOrigin: "top center" },
           {
             scaleY: 1,
-            duration: 1,
+            duration: isMobile ? 0.6 : 1,
             ease: "power2.out",
-            delay: 0.8 + (index * 0.3),
+            delay: isMobile ? 0.3 + (index * 0.1) : 0.8 + (index * 0.3),
             scrollTrigger: {
               trigger: line,
-              start: "top 90%",
-              toggleActions: "play none none reverse"
+              start: isMobile ? "top 95%" : "top 90%",
+              toggleActions: "play none none reverse",
+              once: isMobile
             }
           }
         );
       }
     });
 
-    // Animate timeline markers
+    // Animate timeline markers with better mobile timing
     timelineMarkersRef.current.forEach((marker, index) => {
       if (marker) {
         gsap.fromTo(marker, 
-          { scale: 0, rotation: 45 },
+          { scale: 0, rotation: isMobile ? 0 : 45 },
           {
             scale: 1,
             rotation: 0,
-            duration: 0.6,
+            duration: isMobile ? 0.4 : 0.6,
             ease: "back.out(1.7)",
-            delay: 1 + (index * 0.2),
+            delay: isMobile ? 0.4 + (index * 0.1) : 1 + (index * 0.2),
             scrollTrigger: {
               trigger: marker,
-              start: "top 85%",
-              toggleActions: "play none none reverse"
+              start: isMobile ? "top 95%" : "top 85%",
+              toggleActions: "play none none reverse",
+              once: isMobile
             }
           }
         );
       }
     });
 
-    // Animate experience cards
+    // Animate experience cards with mobile-optimized settings
     experienceCardsRef.current.forEach((card, index) => {
       if (card) {
-        const direction = index % 2 === 0 ? -100 : 100;
+        const direction = isMobile ? 0 : (index % 2 === 0 ? -100 : 100);
         
         gsap.fromTo(card,
           { 
             x: direction, 
             opacity: 0,
             scale: 0.9,
-            rotationY: direction > 0 ? 15 : -15
+            rotationY: isMobile ? 0 : (direction > 0 ? 15 : -15)
           },
           {
             x: 0,
             opacity: 1,
             scale: 1,
             rotationY: 0,
-            duration: 1,
+            duration: isMobile ? 0.6 : 1,
             ease: "power3.out",
-            delay: 1.2 + (index * 0.2),
+            delay: isMobile ? 0.5 + (index * 0.1) : 1.2 + (index * 0.2),
             scrollTrigger: {
               trigger: card,
-              start: "top 80%",
-              toggleActions: "play none none reverse"
+              start: isMobile ? "top 90%" : "top 80%",
+              toggleActions: "play none none reverse",
+              once: isMobile
             }
           }
         );
 
-        // Add subtle parallax scrolling to cards
-        parallaxScroll(card, { speed: 0.1, direction: 'up' });
+        // Add subtle parallax scrolling to cards (desktop only)
+        if (!isMobile) {
+          parallaxScroll(card, { speed: 0.1, direction: 'up' });
+        }
       }
     });
 
-    // Timeline container parallax
-    if (timelineRef.current) {
+    // Timeline container parallax (desktop only)
+    if (timelineRef.current && !isMobile) {
       parallaxScroll(timelineRef.current, { speed: 0.05, direction: 'up' });
     }
   }, []);
