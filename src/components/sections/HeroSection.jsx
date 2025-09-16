@@ -178,7 +178,7 @@ const HeroSection = () => {
         <motion.img
           whileHover={{ scale: 1.1 }}
           className={heroStyles.image6}
-          src={"https://media.licdn.com/dms/image/v2/D5603AQHeL4bQ3V-blA/profile-displayphoto-shrink_800_800/B56ZZkGG1iHgAg-/0/1745436045621?e=1753920000&v=beta&t=KeIzSvgwCQ2wxVKlrTfyv3FgNFx6PMVovWGJte7sF70"}
+          src={"/assets/hero_picture.jpeg"}
           alt="Profile picture"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
